@@ -1,38 +1,147 @@
-.App {
-  text-align: center;
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #F2F2F2;
+  
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+main{
+  width: 730px;
+  border: 2px solid blue;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+
+}
+header{
+  width: 100%;
+  height: 38px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border: 1px solid black;
 }
-
-.App-link {
-  color: #61dafb;
+header h1{
+  color: #222731;
+  font-weight: 700;
+  font-size: 26px;
 }
+.mode{
+  display: flex;
+  align-items: center;
+}
+.mode img{
+  width: 20px;
+  height: 20px;
+  margin-left: 16px;
+}
+.mode p {
+  font-weight: 700;
+  font-size: 13px;
+  color: #697C9A;
+}
+.search-box{
+  width: 100%;
+  height: 69px;
+  background: #FEFEFE;
+  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.search-box img {
+  width: 21px;
+  height: 21px;
+}
+.search-box input {
+  width: 70%;
+  height: 100%;
+  border: none;
+  outline: none;
+}
+::placeholder{
+  font-weight: 400;
+  font-size: 18px;
+  color: #4B6A9B;
+}
+.search-box button {
+  width: 106px;
+  height: 50px;
+  background-color: #0079FF;
+  color:#FFFFFF;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+}
+.result-box{
+  width: 100%;
+  height: 419px;
+  background: #FEFEFE;
+  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
+  border-radius: 15px;
+  border: 1px solid black;
+  padding: 48px;
+  display: flex;
+  justify-content: space-between;
+}
+.avatar-box{
+  width: 117px;
+  height: 117px;
+  border-radius: 50%;
+}
+.avatar-box img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.info-box {
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid red;
+}
+.name-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.name-box h2{
+  font-weight: 700;
+  font-size: 26px;
+  color: #2B3442;
+}
+.name-box p{
+  font-weight: 400;
+  font-size: 15px;
+  color: #697C9A;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+.info-box span{
+  font-weight: 400;
+  font-size: 16px;
+  color: #0079FF;
+}
+.followers-box{
+  width: 100%;
+  height: 85px;
+  background: #F6F8FF;
+  border-radius: 10px;
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.followers-box p {
+  font-weight: 400;
+  font-size: 13px;
+  color: #4B6A9B;
+
+}
+.followers-box h5{
+  font-weight: 700;
+font-size: 22px;
+color: #2B3442;
 }

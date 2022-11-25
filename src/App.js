@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
-
+import ".//components/Reset.css";
+import "./App.css";
+import { useEffect, useState } from "react";
+import Header from "./components/Header";
+import SearchBox from "./components/SearchBox";
+import ResultBox from "./components/ResultBox";
+import { MyContext } from "./components/Context";
 function App() {
+  const [data, setData] = useState();
+  const [fetched, setFetched] = useState(false);
+  async function getInfo() {
+    await fetch("https://api.github.com/users/octocat")
+      .then((response) => response.json())
+      .then((json) => {
+        // console.log(json);
+        setData(json);
+        setFetched(true);
+      });
+  }
+  useEffect(() => {
+    getInfo();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <MyContext.Provider value={{ data: data }}>
+        <div className="container">
+          <main>
+            <Header />
+            <SearchBox />
+            {fetched ? <ResultBox /> : ""}
+          </main>
+        </div>
+      </MyContext.Provider>
+    </>
   );
 }
 
