@@ -1,12 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+html {
+  font-family: 'Space Mono', monospace;
+}
 .container {
   width: 100vw;
   height: 100vh;
-  background-color: #F2F2F2;
-  
 }
 main{
   width: 730px;
-  border: 2px solid blue;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -18,16 +19,16 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid black;
+  margin-bottom: 36px;
 }
 header h1{
-  color: #222731;
   font-weight: 700;
   font-size: 26px;
 }
 .mode{
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 .mode img{
   width: 20px;
@@ -37,27 +38,36 @@ header h1{
 .mode p {
   font-weight: 700;
   font-size: 13px;
-  color: #697C9A;
+  letter-spacing: 2.5px;
 }
 .search-box{
   width: 100%;
   height: 69px;
-  background: #FEFEFE;
-  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
   border-radius: 15px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 24px;
 }
 .search-box img {
   width: 21px;
   height: 21px;
 }
 .search-box input {
-  width: 70%;
+  width: 50%;
   height: 100%;
   border: none;
   outline: none;
+}
+.no-result {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #F74646;
+  font-weight: 700;
+  font-size: 15px;
 }
 ::placeholder{
   font-weight: 400;
@@ -73,14 +83,15 @@ header h1{
   font-size: 16px;
   border-radius: 10px;
   border: none;
+  cursor: pointer;
+}
+.search-box button:hover {
+  background-color: #60ABFF;
 }
 .result-box{
   width: 100%;
   height: 419px;
-  background: #FEFEFE;
-  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
   border-radius: 15px;
-  border: 1px solid black;
   padding: 48px;
   display: flex;
   justify-content: space-between;
@@ -100,7 +111,6 @@ header h1{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 2px solid red;
 }
 .name-box {
   width: 100%;
@@ -111,25 +121,25 @@ header h1{
 .name-box h2{
   font-weight: 700;
   font-size: 26px;
-  color: #2B3442;
 }
 .name-box p{
   font-weight: 400;
   font-size: 15px;
-  color: #697C9A;
-
 }
 .info-box span{
   font-weight: 400;
   font-size: 16px;
   color: #0079FF;
 }
+.info-box h6{
+  font-weight: 400;
+  font-size: 15px;
+  opacity: 0.75;
+}
 .followers-box{
   width: 100%;
   height: 85px;
-  background: #F6F8FF;
   border-radius: 10px;
-  border: 1px solid red;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -137,11 +147,30 @@ header h1{
 .followers-box p {
   font-weight: 400;
   font-size: 13px;
-  color: #4B6A9B;
-
+  margin-bottom: 4px;
 }
 .followers-box h5{
   font-weight: 700;
-font-size: 22px;
-color: #2B3442;
+  font-size: 22px;
+}
+.link-box{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+}
+.address-box, .twitter-box {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  
+}
+.address-box div, .twitter-box div {
+  display: flex;
+  align-items: center; 
+  margin-bottom: 15px;
+}
+.address-box div p, .twitter-box div p{
+  margin-left: 15px;
+  font-size: 15px;
 }
