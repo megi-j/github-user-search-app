@@ -14,6 +14,7 @@ function App() {
   const [mode, setMode] = useState("#F2F2F2");
   const [clickedMode, setClickedMode] = useState(false);
   const [noResult, setNoResult] = useState("");
+
   async function getInfo() {
     await fetch(`https://api.github.com/users/${user}`)
       .then((response) => response.json())
@@ -39,7 +40,9 @@ function App() {
   }
   function searchClicked() {
     setUser(searchInputValue);
-    if (searchInputValue === "" || user != data.login) {
+    if (searchInputValue === "") {
+      setNoResult("No results");
+    } else if (user != data.login) {
       setNoResult("No results");
     } else {
       setNoResult("");
@@ -54,6 +57,11 @@ function App() {
       setMode("#F2F2F2");
     }
   }
+  function keyPress(e) {
+    if (e.code === "Enter") {
+      searchClicked();
+    }
+  }
   return (
     <>
       <MyContext.Provider
@@ -66,6 +74,7 @@ function App() {
           clickedMode: clickedMode,
           user: user,
           noResult: noResult,
+          keyPress: keyPress,
         }}
       >
         <div className="container" style={{ backgroundColor: mode }}>

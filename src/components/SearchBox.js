@@ -27,6 +27,7 @@ export default function SearchBox() {
         value={context.searchInputValue}
         onChange={(e) => context.changeInputValue(e)}
         onFocus={(e) => (e.target.placeholder = "")}
+        onKeyPress={(e) => context.keyPress(e)}
       />
       <div className="no-result">{context.noResult}</div>
       <button onClick={context.searchClicked}>Search</button>
