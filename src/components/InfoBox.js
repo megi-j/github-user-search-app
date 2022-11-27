@@ -4,28 +4,9 @@ import website from "../images/icon-website.svg";
 
 export default function InfoBox() {
   const context = useContext(MyContext);
-  let creationDate = new Date(context.data.created_at);
-  let joinDate = creationDate.toLocaleString("en-GB", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
+
   return (
     <div className="info-box">
-      <div className="name-box">
-        <h2
-          style={{ color: context.clickedMode === false ? "#2B3442" : "#fff" }}
-        >
-          {context.data.name === null ? context.data.login : context.data.name}
-        </h2>
-        <p
-          style={{ color: context.clickedMode === false ? "#697C9A" : "#fff" }}
-        >
-          Joined {joinDate}
-        </p>
-      </div>
-      <span>@{context.data.login}</span>
-
       <h6 style={{ color: context.clickedMode === false ? "#4B6A9B" : "#fff" }}>
         {context.data.bio == null
           ? "This profile has no bio"
