@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import moon from "../images/icon-moon.svg";
 import { MyContext } from "./Context";
 import sun from "../images/icon-sun.svg";
+
 export default function Header() {
   const context = useContext(MyContext);
   return (

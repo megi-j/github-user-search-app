@@ -25,11 +25,6 @@ function App() {
           setFetched(true);
         }
       });
-    // fetch(`https://api.github.com/users/${user}`)
-    //   .then((response) => response.json())
-    //   .then((json) => {
-    //     console.log(json);
-    //   });
   }
   useEffect(() => {
     getInfo();
@@ -42,9 +37,12 @@ function App() {
     setUser(searchInputValue);
     if (searchInputValue === "") {
       setNoResult("No results");
-    } else if (user != data.login) {
-      setNoResult("No results");
-    } else {
+    }
+    // else if (user != data.login) {
+    //   setNoResult("No results");
+    //   console.log("wrong");
+    // }
+    else {
       setNoResult("");
     }
     console.log(data);

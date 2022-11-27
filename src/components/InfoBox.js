@@ -1,9 +1,6 @@
 import { useContext } from "react";
 import { MyContext } from "./Context";
-import twitter from "../images/icon-twitter.svg";
-import location from "../images/icon-location.svg";
 import website from "../images/icon-website.svg";
-import company from "../images/icon-company.svg";
 
 export default function InfoBox() {
   const context = useContext(MyContext);
