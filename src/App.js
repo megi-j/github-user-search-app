@@ -15,17 +15,39 @@ function App() {
   const [clickedMode, setClickedMode] = useState(false);
   const [noResult, setNoResult] = useState("");
 
-  async function getInfo() {
-    await fetch(`https://api.github.com/users/${user}`)
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json);
-        setData(json);
-        if (json.message !== "Not Found") {
-          setFetched(true);
+  // async function getInfo() {
+  //   fetch(`https://api.github.com/users/${user}`)
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       // console.log(json);
+  //       setData(json);
+  //       if (json.message !== "Not Found") {
+  //         setFetched(true);
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error(error, "text");
+  //     });
+  // }
+  function getInfo() {
+    fetch(`https://api.github.com/users/${user}`)
+      .then((response) => {
+        console.log(response);
+        if (response.ok) {
+          return response.json();
         }
+        throw new Error("something went wrong");
+      })
+      .then((responseJson) => {
+        // console.log(responseJson);
+        setData(responseJson);
+        setFetched(true);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }
+
   useEffect(() => {
     getInfo();
   }, [user]);
@@ -35,18 +57,13 @@ function App() {
   }
   function searchClicked() {
     setUser(searchInputValue);
-    if (searchInputValue === "") {
-      setNoResult("No results");
-    }
-    // else if (user != data.login) {
+    // if (user !== data.login) {
     //   setNoResult("No results");
-    //   console.log("wrong");
+    // } else {
+    //   setNoResult("");
     // }
-    else {
-      setNoResult("");
-    }
-    console.log(data);
   }
+
   function changeMode() {
     setClickedMode(!clickedMode);
     if (!clickedMode) {
