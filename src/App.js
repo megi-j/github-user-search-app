@@ -15,38 +15,38 @@ function App() {
   const [clickedMode, setClickedMode] = useState(false);
   const [noResult, setNoResult] = useState("");
 
-  // async function getInfo() {
-  //   fetch(`https://api.github.com/users/${user}`)
-  //     .then((response) => response.json())
-  //     .then((json) => {
-  //       // console.log(json);
-  //       setData(json);
-  //       if (json.message !== "Not Found") {
-  //         setFetched(true);
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error(error, "text");
-  //     });
-  // }
   function getInfo() {
     fetch(`https://api.github.com/users/${user}`)
-      .then((response) => {
-        console.log(response);
-        if (response.ok) {
-          return response.json();
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json);
+        if (json.message === "Not Found") {
+          setNoResult("No results");
+        } else {
+          setData(json);
+          setFetched(true);
+          setNoResult("");
         }
-        throw new Error("something went wrong");
-      })
-      .then((responseJson) => {
-        // console.log(responseJson);
-        setData(responseJson);
-        setFetched(true);
-      })
-      .catch((error) => {
-        console.log(error);
       });
   }
+  // function getInfo() {
+  //   fetch(`https://api.github.com/users/${user}`)
+  //     .then((response) => {
+  //       console.log(response);
+  //       if (response.ok) {
+  //         return response.json();
+  //       }
+  //       throw new Error("something went wrong");
+  //     })
+  //     .then((responseJson) => {
+  //       // console.log(responseJson);
+  //       setData(responseJson);
+  //       setFetched(true);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
 
   useEffect(() => {
     getInfo();
@@ -57,11 +57,6 @@ function App() {
   }
   function searchClicked() {
     setUser(searchInputValue);
-    // if (user !== data.login) {
-    //   setNoResult("No results");
-    // } else {
-    //   setNoResult("");
-    // }
   }
 
   function changeMode() {
@@ -83,7 +78,7 @@ function App() {
         value={{
           data: data,
           searchInputValue: searchInputValue,
-          changeInputValue: (e) => changeInputValue(e),
+          changeInputValue: changeInputValue,
           searchClicked: searchClicked,
           changeMode: changeMode,
           clickedMode: clickedMode,
